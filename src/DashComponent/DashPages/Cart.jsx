@@ -3,6 +3,7 @@ import UseCard from '../../CustomHooks/UseCard';
 import { FaTrashAlt } from 'react-icons/fa';
 import UseAxiosSecure from '../../CustomHooks/UseAxiosSecure';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
     const [cart,refetch] = UseCard()
@@ -41,7 +42,7 @@ const Cart = () => {
         <div className="flex justify-evenly mb-8">
             <h2 className="text-4xl">Items: {cart.length}</h2>
             <h2 className="text-4xl">Total Price: ${totalPrice}</h2>
-            <button className="btn btn-primary">Pay</button>
+            <button disabled={!cart.length} className="btn btn-primary"><Link to='/dashboard/cart/payment'>Pay</Link></button>
 
         </div>
         <div className="overflow-x-auto">

@@ -13,6 +13,8 @@ import AdminRoute from "./AdminRoute";
 import AddItem from "../DashComponent/DashPages/AddItem";
 import ManageItem from "../DashComponent/DashPages/ManageItem";
 import UpdateMenu from "../DashComponent/DashPages/UpdateMenu";
+import PaymentPage from "../DashComponent/UserPages/PaymentPage";
+import PaymentHistroy from "../DashComponent/UserPages/PaymentHistroy";
 
 const router = createBrowserRouter([
 {
@@ -58,6 +60,10 @@ const router = createBrowserRouter([
             element: <PrivateRoute><Cart></Cart></PrivateRoute>
         },
         {
+            path:'/dashboard/paymentHistory',
+            element:<PaymentHistroy></PaymentHistroy>
+        },
+        {
             path:'/dashboard/review',
             element: <h2>userhome</h2>
         },
@@ -68,6 +74,10 @@ const router = createBrowserRouter([
         {
             path:'/dashboard/bookings',
             element: <h2>userhome</h2>
+        },
+        {
+            path:'/dashboard/cart/payment',
+            element:<PaymentPage></PaymentPage>
         },
        // admin route
        {
@@ -85,6 +95,7 @@ const router = createBrowserRouter([
        },
        {
         path:'/dashboard/updateItem/:id',
+        loader:({params})=> fetch(`${import.meta.env.VITE_SERVER_URL}/menus/${params.id}`),
         element:<AdminRoute><UpdateMenu></UpdateMenu></AdminRoute>
        }
     ]

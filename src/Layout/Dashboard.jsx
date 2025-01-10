@@ -5,6 +5,7 @@ import UseCard from '../CustomHooks/UseCard';
 import UseAdmin from '../CustomHooks/UseAdmin';
 import { authContext } from '../Provider/AuthProvider';
 import Loadd from '../AllComponents/Loadd';
+import { FaMoneyBill } from 'react-icons/fa6';
 
 const Dashboard = () => {
     const[cart] = UseCard()
@@ -71,6 +72,11 @@ const Dashboard = () => {
                                     <NavLink to="/dashboard/bookings">
                                         <FaList></FaList>
                                         My Bookings</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/paymentHistory">
+                                        <FaMoneyBill></FaMoneyBill>
+                                        Payment History</NavLink>
                                 </li>
                             </>
                     }
